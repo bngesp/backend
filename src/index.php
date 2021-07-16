@@ -59,8 +59,7 @@ if(isset($_GET['qcm']) && $_GET['qcm']=="list"){
     header('Content-Type: application/json');
     echo json_encode($donnees);
 }
-
-if(isset($_GET['qcm']) && $_GET['qcm']=="one"){
+elseif(isset($_GET['qcm']) && $_GET['qcm']=="one"){
     $db = getDB();
     $id = $_GET['id'];
     $result = $db->query('Select * from qcm where id ='.$id);
@@ -68,13 +67,14 @@ if(isset($_GET['qcm']) && $_GET['qcm']=="one"){
     header('Content-Type: application/json');
     echo json_encode($donnees);
 }
-if(isset($_POST['qcm'])){
-    $db = getDB();
-    $d = $_POST['qcm'];
-    $result = $db->prepare('Insert into qcm(question, reponse, note) values (?, ?, ?)');
-    $donnees = $result->execute($d);
-    header('Content-Type: application/json');
-    echo json_encode($donnees);
+else{
+    $el = json_decode(file_get_contents('php://input'), true);
+    if(count($el)>0 && !isset($_GET['qcm']))
+    {
+        $db = getDB();
+        $result = $db->prepare('Insert into qcm(id, question, reponse, note) values (null, ?, ?, ?)');
+        $donnees = $result->execute(array_values($el));
+        header('Content-Type: application/json');
+        echo json_encode("donnees enregistrees");
+    }
 }
-
-
