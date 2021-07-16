@@ -7,12 +7,16 @@ namespace Composer\Autoload;
 class ComposerStaticInit58499903760ac1317b10934e405994dc
 {
     public static $files = array (
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
+            'Symfony\\Polyfill\\Php80\\' => 23,
+            'Slim\\Psr7\\' => 10,
             'Slim\\' => 5,
         ),
         'P' => 
@@ -33,11 +37,20 @@ class ComposerStaticInit58499903760ac1317b10934e405994dc
         ),
         'F' => 
         array (
+            'Fig\\Http\\Message\\' => 17,
             'FastRoute\\' => 10,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Symfony\\Polyfill\\Php80\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
+        ),
+        'Slim\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slim/psr7/src',
+        ),
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
@@ -72,6 +85,10 @@ class ComposerStaticInit58499903760ac1317b10934e405994dc
         array (
             0 => __DIR__ . '/..' . '/php-http/message-factory/src',
         ),
+        'Fig\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fig/http-message-util/src',
+        ),
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
@@ -79,7 +96,11 @@ class ComposerStaticInit58499903760ac1317b10934e405994dc
     );
 
     public static $classMap = array (
+        'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
+        'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
+        'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
